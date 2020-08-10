@@ -1,0 +1,64 @@
+@charset "UTF-8";
+// ==========================================================================
+// Global Settings
+// ==========================================================================
+
+// Text Sizing
+/// This is the default html and body font-size for the base em value.
+$base-em-size			: 16px !default;
+
+/// Since the typical default browser font-size is 16px, that makes the calculation for grid size.
+/// If you want your base font-size to be different and not have it affect the grid breakpoints,
+/// set $rem-base to $base-font-size and make sure $base-font-size is a px value.
+$base-font-size			: 100%;
+
+/// The $base-font-size is 100% while $base-line-height is 150%
+$base-line-height		: 150% !default;
+$letter-space       : 1px  !default;
+
+/// Border radius
+$base-border-radius  : 4px !default;
+$round-border-radius : 50%  !default;
+
+/// Transitions
+$trns-duration   		: .3s  !default;
+
+/// Path to Assets
+$path-images-rel       	: "./images";
+$path-fonts-rel       	: "./fonts";
+
+/// Media Query Breakpoints
+$mq-breakpoints : (
+  'xsmall' : 320,
+  'small'  : 768,
+  'medium' : 992,
+  'large'  : 1200,
+  'xlarge' : 1920
+) !default ;
+
+$spacing : (
+  'XXS'    : 2,
+  'XS'     : 4,
+  'S'      : 8,
+  'M'      : 16,
+  'L'      : 32,
+  'XL'     : 64,
+  'XXL'    : 128,
+) !default ;
+
+/// Font Settings
+$font-config : (
+	size : (
+		h1         :rem(48px),
+		h2         :rem(32px),
+		h3         :rem(26px),
+		h4         :rem(20px),
+		h5         :rem(18px),
+		h6         :1rem,
+	),
+	family : (
+		sans-serif :("Helvetica Neue", Helvetica , Arial, sans-serif),
+		serif      :(Georgia, Cambria, "Times New Roman", Times, serif),
+		monospace  :(Consolas, "Liberation Mono", Courier, monospace)
+	)
+);

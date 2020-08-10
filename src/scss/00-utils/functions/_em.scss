@@ -1,0 +1,29 @@
+@charset "UTF-8";
+/// Convert pixels to ems
+/// You can check this articles
+/// https://css-tricks.com/snippets/sass/px-to-em-functions/
+/// https://github.com/sass-mq/sass-mq/blob/master/_mq.scss
+///@param {Number} $pixel-value
+///
+///@param {Number} $base-value
+/// eg. for a relational value of 12px write em(12) when the parent is 16px
+/// if the parent is another value say 24px write em(12, 24)
+@function em($pixel-value, $base-value: 16) {
+	// if the unit is ems we return the value
+	@if unit($pixel-value) == em {
+        @return $pixel-value;
+    }
+    @if unit($pixel-value) == rem {
+        @error "Expecting #{$pixel-value} to be in pixels, use the rem function instead.";
+    }
+    //if value is unitless we convert it to pixels
+    @if unitless($pixel-value) {
+        $pixel-value : $pixel-value  * 1px ;
+    }
+    //if value is unitless we convert it to pixels
+    @if unitless($base-value)  {
+    	$base-value : $base-value * 1px ;
+    }
+    // return the value converted to ems
+    @return ($pixel-value / $base-value) * 1em;
+}

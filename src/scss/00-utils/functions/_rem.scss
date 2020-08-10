@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/// Convert pixels to rems
+///
+///@param {Number} $pixel-value
+///
+///@param {Number} $base-value
+///
+/// eg. for a relational value of 12px write rem(12)
+@function rem($pixel-value, $base-value: 16) {
+    // if the unit is in rems we return it
+    @if unit($pixel-value) == rem {
+        @return $pixel-value;
+    }
+    @if unit($pixel-value) == em {
+        @error "Expecting #{$pixel-value} to be in pixels, use the em function instead.";
+    }
+    //if value is unitless we convert it to pixels
+    @if unitless($pixel-value) {
+        $pixel-value : $pixel-value  * 1px ;
+    }
+    //if value is unitless we convert it to pixels
+    @if unitless($base-value)  {
+        $base-value : $base-value * 1px ;
+    }
+    // return the value converted to ems
+    @return ($pixel-value / $base-value) * 1rem;
+}

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+@mixin box-sizing($value : 'border-box'){
+	/*For Grid Systems Compatibility set it to border box*/
+	*,
+	*:before,
+	*:after { 
+	  -webkit-box-sizing: $value ; /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
+	     -moz-box-sizing: $value ; /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
+	      -ms-box-sizing: $value ; 
+	       -o-box-sizing: $value ; 
+	          box-sizing: $value ;
+	}
+}

@@ -1,0 +1,17 @@
+/// Get a breakpoint's width
+///
+/// @param {String} $name - Name of the breakpoint.
+///
+/// @example scss
+///  $small-width: getBreakpoint(small);
+///
+/// @requires {Variable} $mq-breakpoints
+///
+/// @returns {Number} Value in pixels
+@function get-breakpoint($name, $breakpoints: $mq-breakpoints) {
+    @if map-has-key($breakpoints, $name) {
+        @return map-get($breakpoints, $name);
+    } @else {
+        @warn "Breakpoint #{$name} wasn't found in $breakpoints.";
+    }
+}

@@ -1,0 +1,81 @@
+{
+  "name": "titanium",
+  "version": "1.0.0",
+  "description": "Titanium - a workflow tool for building web applications",
+  "main": "",
+  "scripts": {
+    "security-check": "nsp check",
+    "lint": "esw config devScripts src",
+    "imagemin": "imagemin src/images dist/images -p",
+    "localtunnel": "lt --port 3000",
+
+    "webpack:dev"  : "node ./devScripts/dev.js NODE_ENV=development",
+    "webpack:build": "node ./devScripts/build.js NODE_ENV=production",
+
+    "dev": "npm-run-all webpack:dev",
+    "build": "npm-run-all lint webpack:build security-check test",
+
+    "test:scss": "mocha test/scss/*.test.js",
+    "test": "npm-run-all test:*",
+    "share": "npm-run-all watch localtunnel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thesimpledesigners/Titanium.git"
+  },
+  "keywords": [
+    "titanium",
+    "javascript",
+    "starter-kit",
+    "sass",
+    "css",
+    "html"
+  ],
+  "author": "The Simple Designers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thesimpledesigners/Titanium/issues"
+  },
+  "homepage": "https://github.com/thesimpledesigners/Titanium#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "chalk": "^2.0.1",
+    "chokidar": "^1.7.0",
+    "copy-webpack-plugin": "^4.2.3",
+    "css-loader": "^0.28.7",
+    "eslint": "^4.3.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-watch": "^3.1.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
+    "html-webpack-plugin": "^2.29.0",
+    "imagemin-cli": "^3.0.0",
+    "localtunnel": "^1.8.3",
+    "mocha": "^3.5.0",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2",
+    "nsp": "^2.6.3",
+    "postcss-cli": "^4.1.0",
+    "postcss-loader": "^2.0.9",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.6",
+    "sassaby": "^2.1.1",
+    "style-loader": "^0.19.0",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.4.1",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.18.2",
+    "webpack-merge": "^4.1.1"
+  },
+  "engines": {
+    "node": ">=6.11.1"
+  }
+}
